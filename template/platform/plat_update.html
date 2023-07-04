@@ -1,0 +1,36 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block title %}Update Platform{% endblock %}
+{% block body %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="row" style="margin-top: 100px; margin-left: 400px;">
+        <h1>Platform</h1>
+    <div class="col-lg-6">
+        <form  action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Platform Name</label>
+                    <input class="form-control form-control-sm" value="{{ plat.name }}" name="name" type="text" placeholder="Enter Your Platform Name" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Image</label>
+                    <input class="form-control form-control-sm" name="image" type="file" placeholder="Upload your Platform Image" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                    <img src="{{ plat.image.url }}" height="50px" alt="">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

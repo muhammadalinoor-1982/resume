@@ -1,0 +1,82 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block title %}Update Personal{% endblock %}
+{% block body %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="row" style="margin-top: 100px; margin-left: 400px;">
+        <h1>Personal info form</h1>
+    <div class="col-lg-6">
+        <form  action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Name</label>
+                    <input class="form-control form-control-sm" value="{{ pers.name }}" name="name" type="text" placeholder="Enter Your Name" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Email</label>
+                    <input class="form-control form-control-sm" value="{{pers.email}}" name="email" type="email" placeholder="Enter Your Email" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Phone</label>
+                    <input class="form-control form-control-sm" value="{{pers.phone}}" name="phone" type="text" placeholder="Enter Your Phone Number" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Address</label>
+                    <textarea class="form-control" value="{{pers.phone}}" name="address" type="text" rows="3" style="background-color: #2c3034; color: #FFFFFF">
+                        {{pers.address}}
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Github Link</label>
+                    <input class="form-control form-control-sm" value="{{pers.github}}" name="github" type="text" placeholder="Github Link" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">LinkedIn Link</label>
+                    <input class="form-control form-control-sm" value="{{pers.linkedin}}" name="linkedin" type="text" placeholder="LinkedIn Link" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Instagram Link</label>
+                    <input class="form-control form-control-sm" value="{{pers.instagram}}" name="instagram" type="text" placeholder="Instagram Link" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Facebook Link</label>
+                    <input class="form-control form-control-sm" value="{{pers.facebook}}" name="facebook" type="text" placeholder="Facebook Link" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Tag Line</label>
+                    <textarea class="form-control" rows="3" name="tag_line" type="text" style="background-color: #2c3034; color: #FFFFFF">
+                        {{pers.tag_line}}
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Heading</label>
+                    <input class="form-control form-control-sm" value="{{pers.heading}}" name="heading" type="text" placeholder="Enter your Head Line" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Description</label>
+                    <textarea class="form-control" rows="3" name="description" type="text" style="background-color: #2c3034; color: #FFFFFF">
+                        {{pers.description}}
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Image</label>
+                    <input class="form-control form-control-sm" name="image" type="file" placeholder="Upload your Image" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                    <img src="{{ pers.image.url }}" height="50px" alt="">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'dashboard/dashboard.html' %}
+{% block title %}Update Work Experience{% endblock %}
+{% block body %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="row" style="margin-top: 100px; margin-left: 400px;">
+        <h1>Work Experience</h1>
+    <div class="col-lg-6">
+        <form  action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Employer Name</label>
+                    <input class="form-control form-control-sm" value="{{ we.name }}" name="name" type="text" placeholder="Enter Your Employer Name" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Position</label>
+                    <input class="form-control form-control-sm" value="{{ we.position }}" name="position" type="text" placeholder="Enter Your Position" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Job Description</label>
+                    <textarea class="form-control" name="job_description" type="text" rows="3" style="background-color: #2c3034; color: #FFFFFF">
+                    {{ we.job_description }}
+                    </textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Joining Date</label>
+                    <input class="form-control form-control-sm" value="{{ we.joining_date }}" name="joining_date" type="date" placeholder="Enter Your Joining Date" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Resigning Date</label>
+                    <input class="form-control form-control-sm" value="{{ we.resigning_date }}" name="resigning_date" type="date" placeholder="Enter Your Resigning Date" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" style="color: #FFFFFF">Image</label>
+                    <input class="form-control form-control-sm" name="image" type="file" placeholder="Upload your Experience Latter" aria-label=".form-control-sm example" style="background-color: #2c3034; color: #FFFFFF">
+                    <img src="{{ we.image.url }}" height="50px" alt="">
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
