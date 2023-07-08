@@ -49,7 +49,7 @@ class Portfolio(models.Model):
     description =models.TextField   (max_length=40, null=True, blank=True)
     gitlink     =models.CharField   (max_length=30, null=True, blank=True)
     projectURL  =models.CharField   (max_length=30, null=True, blank=True)
-    image       =models.ImageField  (upload_to='project/', default='noImg/no_img.jpg', null=True, blank=True)
+    image      =models.ImageField  (upload_to='project/', default='noImg/no_img.jpg', null=True, blank=True)
 
 class Platform(models.Model):
     name        =models.CharField   (max_length=20, null=True, blank=True)

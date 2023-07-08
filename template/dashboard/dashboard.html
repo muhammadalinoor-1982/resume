@@ -91,12 +91,12 @@
                     </li>
                     <li>
                         <a class="scroll-to" href="#resume">
-                            <i class="las la-briefcase"></i> <span>Resume</span>
+                            <i class="las la-briefcase"></i> <span>Experience</span>
                         </a>
                     </li>
                     <li>
                         <a class="scroll-to" href="#services">
-                            <i class="las la-stream"></i> <span>Services</span>
+                            <i class="las la-stream"></i> <span>Training</span>
                         </a>
                     </li>
                     <li>
@@ -111,7 +111,7 @@
                     </li>
                     <li>
                         <a class="scroll-to" href="#testimonial">
-                            <i class="lar la-comment"></i> <span>Testimonial</span>
+                            <i class="las la-graduation-cap"></i> <span>Education</span>
                         </a>
                     </li>
                     <li>
@@ -158,12 +158,12 @@
         </li>
         <li>
             <a class="scroll-to" href="#resume">
-                <span>Resume</span> <i class="las la-briefcase"></i>
+                <span>Experience</span> <i class="las la-briefcase"></i>
             </a>
         </li>
         <li>
             <a class="scroll-to" href="#services">
-                <span>Services</span> <i class="las la-stream"></i>
+                <span>Training</span> <i class="las la-stream"></i>
             </a>
         </li>
         <li>
@@ -178,7 +178,7 @@
         </li>
         <li>
             <a class="scroll-to" href="#testimonial">
-                <span>Testimonial</span> <i class="lar la-comment"></i>
+                <span>Education</span> <i class="las la-graduation-cap"></i>
             </a>
         </li>
         <li>
@@ -221,35 +221,35 @@
     <main class="drake-main">
         <div id="smooth-wrapper">
             <div id="smooth-content">
-
+                {% for i in pers %}
                 <div class="left-sidebar">
                     <div class="sidebar-header d-flex align-items-center justify-content-between">
-                        <img src="{% static 'assets/images/logo.png' %}" alt="Logo">
-                        <span class="designation">Framer Designer & Developer</span>
+                        <span style="color: white">{{ i.name }}</span>
+                        <span class="designation">IT Professional</span>
                     </div>
-                    <img class="me" src="{% static 'assets/images/me.jpg' %}" alt="Me">
-                    <h2 class="email">hello@drake.design</h2>
-                    <h2 class="address">Base in Los Angeles, CA</h2>
-                    <p class="copyright">&copy; 2022 Drake. All Rights Reserved</p>
+                    <img class="me" src="{{i.image.url}}" alt="Me">
+                    <p class="copyright" style="color: white">{{ i.email }}</p>
+                    <p class="copyright" style="color: white">{{ i.address}}</p>
+                    <p class="copyright">&copy; 2023 Noor. All Rights Reserved</p>
                     <ul class="social-profile d-flex align-items-center flex-wrap justify-content-center">
                         <li>
-                            <a href="#"><i class="lab la-twitter"></i></a>
+                            <a href="{{ i.linkedin }}" target="_blank"><i class="lab la-linkedin"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="lab la-dribbble"></i></a>
+                            <a href="{{ i.facebook }}" target="_blank"><i class="lab la-facebook"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="lab la-instagram"></i></a>
+                            <a href="{{ i.instagram }}" target="_blank"><i class="lab la-instagram"></i></a>
                         </li>
                         <li>
-                            <a href="#"><i class="lab la-github"></i></a>
+                            <a href="{{ i.github }}" target="_blank"><i class="lab la-github"></i></a>
                         </li>
                     </ul>
                     <a href="#" class="theme-btn">
                         <i class="las la-envelope"></i> Hire Me!
                     </a>
                 </div>
-
+                {% endfor %}
                 <section class="hero-section page-section scroll-to-page" id="home">
 
                     <div class="custom-container">
@@ -270,26 +270,6 @@
                                 <img src="{% static 'assets/images/round-text.png' %}" alt="Rounded Text">
                                 <i class="las la-arrow-down"></i>
                             </a>
-
-                            <div class="section-header">
-                                <h4 class="subtitle scroll-animation" data-animation="fade_from_bottom">
-                                    <i class="las la-briefcase"></i> Resume
-                                </h4>
-                                <h1 class="scroll-animation" data-animation="fade_from_bottom">Language <span>proficiency</span></h1>
-                            </div>
-
-                            <div class="facts d-flex">
-                                {% for i in lang %}
-                                <div class="left scroll-animation" data-animation="fade_from_left">
-                                    <h1>{{ i.name}}</h1>
-                                    <p>{{ i.potentials}}</p>
-                                </div>
-                                {% endfor %}
-                                {% comment %}<div class="right scroll-animation" data-animation="fade_from_right">
-                                    <h1>182+</h1>
-                                    <p>projects completed on <br>15 countries</p>
-                                </div>{% endcomment %}
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -361,7 +341,7 @@
                         <div class="resume-content content-width">
                             <div class="section-header">
                                 <h4 class="subtitle scroll-animation" data-animation="fade_from_bottom">
-                                    <i class="las la-briefcase"></i> Resume
+                                    <i class="las la-briefcase"></i> Experience
                                 </h4>
                                 <h1 class="scroll-animation" data-animation="fade_from_bottom">Work <span>Experience</span></h1>
                             </div>
@@ -402,7 +382,7 @@
                         <div class="services-content content-width">
                             <div class="section-header">
                                 <h4 class="subtitle scroll-animation" data-animation="fade_from_bottom">
-                                    <i class="las la-stream"></i> Services
+                                    <i class="las la-stream"></i> Training
                                 </h4>
                                 <h1 class="scroll-animation" data-animation="fade_from_bottom">Professional <span>Training</span></h1>
                             </div>
@@ -441,7 +421,7 @@
                         <div class="skills-content content-width">
                             <div class="section-header">
                                 <h4 class="subtitle scroll-animation" data-animation="fade_from_bottom">
-                                    <i class="las la-shapes"></i> my skills
+                                    <i class="las la-shapes"></i> Skills
                                 </h4>
                                 <h1 class="scroll-animation" data-animation="fade_from_bottom">My <span>Skills</span></h1>
                             </div>
@@ -521,30 +501,25 @@
                             </div>
 
                             <div class="row portfolio-items">
+                                {% for i in port %}
                                 <div class="col-md-12 scroll-animation" data-animation="fade_from_bottom">
                                     <div class="portfolio-item portfolio-full">
                                         <div class="portfolio-item-inner">
-                                            <a href="{% static 'assets/images/portfolio1.jpg' %}" data-lightbox="example-1">
-                                                <img src="{% static 'assets/images/portfolio1.jpg' %}" alt="Portfolio">
+                                            <a href="{{i.image.url}}" data-lightbox="example-1">
+                                                <img src="{{i.image.url}}" alt="Portfolio">
                                             </a>
 
                                             <ul class="portfolio-categories">
                                                 <li>
-                                                    <a href="#">Figma</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Framer</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">WordPress</a>
+                                                    <a href="{{i.gitlink}}" target="_blank">GitHub Link</a>
                                                 </li>
                                             </ul>
                                         </div>
-                                        <h2><a href="#">Bureau - Architecture Studio Website</a></h2>
+                                        <h2><a href="{{i.projectURL}}" target="_blank">{{ i.name}}</a></h2>
                                     </div>
                                 </div>
-
-                                <div class="col-md-6 scroll-animation" data-animation="fade_from_left">
+                                {% endfor %}
+                                {% comment %}<div class="col-md-6 scroll-animation" data-animation="fade_from_left">
                                     <div class="portfolio-item portfolio-half">
                                         <div class="portfolio-item-inner">
                                             <a href="{% static 'assets/images/portfolio2.jpg' %}" data-lightbox="example-1">
@@ -621,7 +596,7 @@
                                         </div>
                                         <h2><a href="#">Lewis Portfolio Framer Template</a></h2>
                                     </div>
-                                </div>
+                                </div>{% endcomment %}
                             </div>
 
                         </div>
@@ -633,7 +608,7 @@
                         <div class="testimonial-content content-width">
                             <div class="section-header">
                                 <h4 class="subtitle scroll-animation" data-animation="fade_from_bottom">
-                                    <i class="lar la-comment"></i> testimonial
+                                    <i class="lar la-comment"></i> Education
                                 </h4>
                                 <h1 class="scroll-animation" data-animation="fade_from_bottom">Degree of <span>Education</span></h1>
                             </div>
@@ -734,6 +709,29 @@
                                         <img src="{% static 'assets/images/client-8.png' %}" alt="client">
                                     </div>{% endcomment %}
                                 </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section class="resume-area page-section scroll-to-page" id="resume">
+                    <div class="custom-container">
+                        <div class="resume-content content-width">
+                            <div class="section-header">
+                                <h4 class="subtitle scroll-animation" data-animation="fade_from_bottom">
+                                    <i class="las la-language"></i> Language
+                                </h4>
+                                <h1 class="scroll-animation" data-animation="fade_from_bottom">Language <span>Proficiency</span></h1>
+                            </div>
+
+                            <div class="resume-timeline">
+                                {% for i in lang %}
+                                <div class="item scroll-animation" data-animation="fade_from_right">
+                                    <h2>{{ i.name}}</h2>
+                                    <p>Proficiency: <span style="color: rgb(40, 233, 140)">{{ i.potentials}}</span></p>
+                                </div>
+                                {% endfor %}
                             </div>
 
                         </div>
